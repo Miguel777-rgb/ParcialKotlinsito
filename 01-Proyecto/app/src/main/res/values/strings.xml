@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Descripción: Textos centralizados para facilitar la gestión y traducción.
+    Autor: Miguel Flores
+    Fecha de creación: 16/10/2025
+    Fecha de última modificación: 16/10/2025
+-->
+<resources>
+    <string name="app_name">Color Match Game</string>
+
+    <!-- WelcomeFragment -->
+    <string name="welcome_title">Color Match</string>
+    <string name="welcome_subtitle">¡Pon a prueba tu sentido Arácnido!</string>
+    <string name="start_game">Iniciar Juego</string>
+    <string name="game_rules_title">Reglas del Juego</string>
+    <string name="game_rules_message">
+        Aparecerá un color en el centro de la pantalla.\n\n
+        Tu propósito en esta vida es presionar el botón del color correcto tan rápido como puedas.\n\n
+        Tienes 30 segundos para conseguir el mayor número de aciertos. Are u ready?
+    </string>
+    <string name="ok_button">Entendido</string>
+
+    <!-- GameFragment -->
+    <string name="score_label">Puntaje: %d</string>
+    <string name="time_label">Tiempo: %d</string>
+
+    <!-- ResultFragment -->
+    <string name="final_score_label">Puntaje Final</string>
+    <string name="high_score_label">Mejor Puntaje</string>
+    <string name="session_history_label">Historial de la Sesión</string>
+    <string name="play_again">Volver a Jugar</string>
+</resources>

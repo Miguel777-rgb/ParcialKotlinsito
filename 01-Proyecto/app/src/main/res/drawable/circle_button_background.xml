@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Descripción: Drawable en forma de óvalo (círculo si el ancho y alto son iguales)
+                 para ser usado como fondo de los botones de colores.
+    Autor: Miguel Flores
+    Fecha de creación: 16/10/2025
+    Fecha de última modificación: 16/10/2025
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+
+    <!-- El color del botón se aplicará mediante backgroundTint en el layout,
+         por lo que no necesitamos un color sólido aquí. -->
+    <solid android:color="@android:color/darker_gray" />
+
+    <!-- Podríamos añadir un borde si quisiéramos -->
+    <!--
+    <stroke
+        android:width="2dp"
+        android:color="@color/white" />
+    -->
+</shape>

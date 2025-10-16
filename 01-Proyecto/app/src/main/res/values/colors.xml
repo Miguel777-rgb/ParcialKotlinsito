@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Descripción: Paleta de colores centralizada para la aplicación.
+    Autor: Miguel Flores
+    Fecha de creación: 16/10/2025
+    Fecha de última modificación: 16/10/2025
+-->
+<resources>
+    <!-- Colores base de la App -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="background_light">#F5F5F5</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+
+    <!-- Colores del Jueguito -->
+    <color name="game_red">#E53935</color>
+    <color name="game_green">#43A047</color>
+    <color name="game_blue">#1E88E5</color>
+    <color name="game_yellow">#FDD835</color>
+    <color name="game_orange">#FB8C00</color>
+    <color name="game_purple">#8E24AA</color>
+</resources>

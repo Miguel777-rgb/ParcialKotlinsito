@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Descripción: Estilos centralizados para componentes de la UI.
+    Autor: Miguel Flores
+    Fecha de creación: 16/10/2025
+    Fecha de última modificación: 16/10/2025
+-->
+<resources>
+    <!-- Estilo base de la aplicación (puede estar en themes.xml) -->
+    <style name="Theme.ColorMatchGame" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- ... otros atributos del tema ... -->
+    </style>
+
+    <!--
+        Estilo para los botones de colores del juego.
+        Centraliza el tamaño, márgenes y el fondo, haciendo el layout más limpio.
+    -->
+    <style name="ColorButton">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:layout_margin">12dp</item>
+        <!--
+            Aquí no asignamos el background directamente para poder usar backgroundTint.
+            Si quisiéramos forzar el drawable, usaríamos:
+            <item name="android:background">@drawable/circle_button_background</item>
+            Pero al usarlo en un MaterialButton, este ya tiene una forma por defecto
+            que podemos tintar, lo cual es más flexible. Si usaras un `View` o `ImageButton`,
+            asignar el background sí sería la mejor opción. Para `Button` (MaterialButton),
+            `backgroundTint` es ideal.
+        -->
+    </style>
+</resources>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Descripción: Layout principal del juego interactivo.
+    Autor: Miguel Flores
+    Fecha de creación: 16/10/2025
+    Fecha de última modificación: 16/10/2025
+-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".ui.game.GameFragment">
+
+    <TextView
+        android:id="@+id/scoreTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Puntaje: 10" />
+
+    <TextView
+        android:id="@+id/timerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Tiempo: 25" />
+
+    <View
+        android:id="@+id/colorDisplayView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@color/game_blue"
+        app:layout_constraintTop_toBottomOf="@id/scoreTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/colorButtonsGrid"
+        app:layout_constraintVertical_bias="0.4"/>
+
+    <GridLayout
+        android:id="@+id/colorButtonsGrid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/colorDisplayView">
+
+        <!-- Usaremos un drawable para los botones redondeados, por ejemplo, `button_background.xml` -->
+        <Button android:id="@+id/redButton" style="@style/ColorButton" android:backgroundTint="@color/game_red" />
+        <Button android:id="@+id/greenButton" style="@style/ColorButton" android:backgroundTint="@color/game_green" />
+        <Button android:id="@+id/blueButton" style="@style/ColorButton" android:backgroundTint="@color/game_blue" />
+        <Button android:id="@+id/yellowButton" style="@style/ColorButton" android:backgroundTint="@color/game_yellow" />
+        <Button android:id="@+id/orangeButton" style="@style/ColorButton" android:backgroundTint="@color/game_orange" />
+        <Button android:id="@+id/purpleButton" style="@style/ColorButton" android:backgroundTint="@color/game_purple" />
+
+    </GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
