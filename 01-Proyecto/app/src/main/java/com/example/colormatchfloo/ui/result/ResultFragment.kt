@@ -1,3 +1,9 @@
+/**
+ * Descripción: ViewModel que maneja la lógica del juego usando un único objeto GameState.
+ * Autor: Miguel Flores
+ * Fecha de creación: 16/10/2025
+ * Fecha de última modificación: 18/10/2025
+ */
 package com.example.colormatchfloo.ui.result
 
 import android.os.Bundle
@@ -15,12 +21,6 @@ import com.example.colormatchfloo.adapters.ScoreAdapter
 import com.example.colormatchfloo.databinding.FragmentResultBinding
 import com.example.colormatchfloo.ui.SharedViewModel
 
-/**
- * Descripción: Fragmento final que muestra los resultados de la partida, el récord y el historial.
- * Autor: Miguel Flores
- * Fecha de creación: 16/10/2025
- * Fecha de última modificación: 16/10/2025
- */
 class ResultFragment : Fragment() {
 
     private var _binding: FragmentResultBinding? = null

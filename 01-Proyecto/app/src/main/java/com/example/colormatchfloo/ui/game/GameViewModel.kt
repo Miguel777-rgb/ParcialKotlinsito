@@ -1,3 +1,9 @@
+/**
+ * Descripción: ViewModel que maneja la lógica del juego usando un único objeto GameState.
+ * Autor: Miguel Flores
+ * Fecha de creación: 16/10/2025
+ * Fecha de última modificación: 18/10/2025
+ */
 package com.example.colormatchfloo.ui.game
 
 import android.os.CountDownTimer
@@ -7,13 +13,9 @@ import androidx.lifecycle.ViewModel
 import com.example.colormatchfloo.model.ColorOption
 import com.example.colormatchfloo.model.GameState
 import com.example.colormatchfloo.utils.Constants
+import com.example.colormatchfloo.utils.GameSound
 import android.util.Log
-/**
- * Descripción: ViewModel que maneja la lógica del juego usando un único objeto GameState.
- * Autor: Miguel Flores
- * Fecha de creación: 16/10/2025
- * Fecha de última modificación: 16/10/2025
- */
+
 class GameViewModel : ViewModel() {
 
     // Ahora solo tenemos un LiveData que contiene todo el estado de la UI.
@@ -48,22 +50,31 @@ class GameViewModel : ViewModel() {
         }.start()
     }
 
+    private val _soundEvent = MutableLiveData<GameSound?>()
+    val soundEvent: LiveData<GameSound?> get() = _soundEvent
+
     fun onColorSelected(selectedColor: ColorOption) {
         val currentState = _gameState.value ?: return
-        // No procesamos clics si el juego ya ha terminado.
         if (currentState.isGameFinished) return
 
-        val newScore = if (selectedColor == currentState.currentColor) {
-            currentState.score + 1 // Acierto
+        val newScore: Int
+        if (selectedColor == currentState.currentColor) {
+            newScore = currentState.score + 1
+            _soundEvent.value = GameSound.CORRECT // <-- Emitir evento de acierto
         } else {
-            currentState.score // Error (o podríamos restar puntos: currentState.score - 1)
+            newScore = (currentState.score - 1).coerceAtLeast(0)
+            _soundEvent.value = GameSound.ERROR   // <-- Emitir evento de error
         }
 
-        // Actualizamos el estado con el nuevo puntaje y el siguiente color.
         _gameState.value = currentState.copy(
             score = newScore,
             currentColor = generateRandomColor(currentState.currentColor)
         )
+    }
+
+    /** Llama a esta función desde el Fragment después de reproducir el sonido. */
+    fun onSoundPlayed() {
+        _soundEvent.value = null
     }
 
     /**
@@ -81,4 +92,5 @@ class GameViewModel : ViewModel() {
         super.onCleared()
         timer.cancel()
     }
+
 }

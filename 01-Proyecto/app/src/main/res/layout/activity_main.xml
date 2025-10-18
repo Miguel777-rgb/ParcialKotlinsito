@@ -3,7 +3,7 @@
     Descripción: Contenedor principal para los fragmentos de la aplicación.
     Autor: Miguel Flores
     Fecha de creación: 16/10/2025
-    Fecha de última modificación: 16/10/2025
+    Fecha de última modificación: 18/10/2025
 -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"

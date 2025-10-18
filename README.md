@@ -115,5 +115,15 @@ A continuación se detalla dónde se ha aplicado cada uno de los conceptos clave
 10. **Uso de AlertDialog.**
     *   **Justificación:** En `ui/welcome/WelcomeFragment.kt`, la función `showGameRulesDialog()` crea y muestra un `AlertDialog` con las reglas del juego. Se llama automáticamente al iniciar el fragmento.
 
-11. **Funciones Adicionales.**
-    *   **Pediente**
+11.  **Funcionalidades Adicionales Implementadas**
+*   **🔊 Sonidos:**
+    *   **Justificación:** La gestión del audio está completamente **encapsulada** en la clase `utils/SoundManager.kt`. Esta clase utiliza la herramienta adecuada para cada tarea:
+        *   **`SoundPool`:** Para los efectos de sonido cortos de **acierto** y **error**. Se eligió por su baja latencia y eficiencia, ya que precarga los sonidos en memoria.
+        *   **`MediaPlayer`:** Para la **música de fondo**, ya que es ideal para archivos de audio más largos.
+    *   La **comunicación MVVM** se maneja de forma limpia: el `GameViewModel.kt` emite un evento de un solo uso (`_soundEvent`) cuando ocurre un acierto o error. El `GameFragment.kt` observa este evento y le ordena al `SoundManager` que reproduzca el sonido correspondiente.
+    *   Se realiza una **gestión del ciclo de vida** robusta en `GameFragment.kt`: la música se inicia/pausa en `onResume()`/`onPause()` y todos los recursos de audio se liberan en `onDestroyView()` a través de `soundManager.release()` para prevenir fugas de memoria.
+
+*   **🎨 Animaciones:**
+    *   **Justificación:** Se utiliza la API `ViewPropertyAnimator` (`view.animate()`), que es moderna, eficiente y ofrece un código muy legible.
+    *   **Feedback al Tocar:** En `GameFragment.kt`, dentro de la función `setupButtonListeners()`, cada botón tiene una animación de "pop" (escala a 0.9 y vuelve a 1.0) al ser presionado. Esto proporciona una respuesta táctil y visual inmediata al usuario.
+    *   **Transición de Estado:** En el observador de `gameState` dentro de `GameFragment.kt`, el cuadro de color no cambia bruscamente. En su lugar, se anima con un efecto de *fade-out*, se actualiza el color y luego hace un *fade-in*. Esto se logra encadenando animaciones con `.withEndAction {}`, resultando en una transición suave que no desorienta al jugador.

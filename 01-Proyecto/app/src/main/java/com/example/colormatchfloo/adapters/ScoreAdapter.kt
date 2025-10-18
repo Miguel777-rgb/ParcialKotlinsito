@@ -1,3 +1,9 @@
+/**
+ * Descripción: Adaptador para el RecyclerView que muestra el historial de puntajes de la sesión.
+ * Autor: Miguel Flores
+ * Fecha de creación: 16/10/2025
+ * Fecha de última modificación: 16/18/2025
+ */
 package com.example.colormatchfloo.adapters
 
 import android.view.LayoutInflater
@@ -5,12 +11,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.colormatchfloo.databinding.ItemScoreHistoryBinding
 
-/**
- * Descripción: Adaptador para el RecyclerView que muestra el historial de puntajes de la sesión.
- * Autor: Miguel Flores
- * Fecha de creación: 16/10/2025
- * Fecha de última modificación: 16/10/2025
- */
 // La lista de puntajes ahora se puede pasar como un var para poder actualizarla
 class ScoreAdapter(private var scores: List<Int>) : RecyclerView.Adapter<ScoreAdapter.ScoreViewHolder>() {
 

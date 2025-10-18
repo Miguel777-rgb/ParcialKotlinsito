@@ -1,16 +1,16 @@
+/**
+ * Descripción: ViewModel compartido a nivel de actividad para mantener el historial de puntajes de la sesión.
+ *              Sobrevive a la navegación entre fragmentos.
+ * Autor: Miguel Flores
+ * Fecha de creación: 16/10/2025
+ * Fecha de última modificación: 18/10/2025
+ */
 package com.example.colormatchfloo.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-/**
- * Descripción: ViewModel compartido a nivel de actividad para mantener el historial de puntajes de la sesión.
- *              Sobrevive a la navegación entre fragmentos.
- * Autor: Miguel Flores
- * Fecha de creación: 16/10/2025
- * Fecha de última modificación: 16/10/2025
- */
 class SharedViewModel : ViewModel() {
 
     private val _sessionScores = MutableLiveData<List<Int>>(emptyList())

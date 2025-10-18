@@ -1,14 +1,14 @@
+/**
+ * Descripción: Almacena valores constantes y datos estáticos de la aplicación.
+ * Autor: Miguel Flores
+ * Fecha de creación: 16/10/2025
+ * Fecha de última modificación: 18/10/2025
+ */
 package com.example.colormatchfloo.utils
 
 import com.example.colormatchfloo.R
 import com.example.colormatchfloo.model.ColorOption
 
-/**
- * Descripción: Almacena valores constantes y datos estáticos de la aplicación.
- * Autor: Miguel Flores
- * Fecha de creación: 16/10/2025
- * Fecha de última modificación: 16/10/2025
- */
 object Constants {
 
     const val GAME_DURATION_MS = 30000L // 30 segundos en milisegundos

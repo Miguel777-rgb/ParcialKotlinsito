@@ -1,8 +1,3 @@
-package com.example.colormatchfloo.data
-
-import android.content.Context
-import android.content.SharedPreferences
-
 /**
  * Descripción: Clase helper para gestionar la persistencia de datos con SharedPreferences.
  *              Abstrae la lectura y escritura del puntaje más alto.
@@ -10,6 +5,11 @@ import android.content.SharedPreferences
  * Fecha de creación: 16/10/2025
  * Fecha de última modificación: 16/10/2025
  */
+package com.example.colormatchfloo.data
+
+import android.content.Context
+import android.content.SharedPreferences
+
 class SharedPreferencesManager(context: Context) {
 
     // Usamos un companion object para las constantes, así están bien organizadas.

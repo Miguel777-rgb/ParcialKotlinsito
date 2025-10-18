@@ -10,7 +10,12 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.colormatchfloo.R
 import com.example.colormatchfloo.databinding.FragmentWelcomeBinding
-
+/**
+ * Descripción: Clase que muestra la pantalla de bienvenida y gestiona la navegación. Previo a la partida.
+ * Autor: Miguel Flores
+ * Fecha de creación: 16/10/2025
+ * Fecha de última modificación: 18/10/2025
+ */
 class WelcomeFragment : Fragment() {
 
     private var _binding: FragmentWelcomeBinding? = null

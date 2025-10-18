@@ -1,3 +1,10 @@
+/**
+ * Descripción: ViewModel para la pantalla de resultados. Gestiona la comparación del puntaje final
+ *              con el récord histórico guardado en SharedPreferences.
+ * Autor: Miguel Flores
+ * Fecha de creación: 16/10/2025
+ * Fecha de última modificación: 18/10/2025
+ */
 package com.example.colormatchfloo.ui.result
 
 import android.app.Application
@@ -6,13 +13,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.colormatchfloo.data.SharedPreferencesManager
 
-/**
- * Descripción: ViewModel para la pantalla de resultados. Gestiona la comparación del puntaje final
- *              con el récord histórico guardado en SharedPreferences.
- * Autor: Miguel Flores
- * Fecha de creación: 16/10/2025
- * Fecha de última modificación: 16/10/2025
- */
 class ResultViewModel(application: Application) : AndroidViewModel(application) {
 
     // Creamos una instancia de nuestro manager para interactuar con SharedPreferences.
