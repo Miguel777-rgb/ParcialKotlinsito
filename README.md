@@ -12,9 +12,9 @@ Este proyecto fue desarrollado como una práctica integral para dominar concepto
 
 
 
-| Pantalla de Bienvenida | Pantalla de Juego | Pantalla de Resultados |
+| Pantalla de Bienvenida | Pantalla de Resultados | Pantalla de Reglas del Juego |
 | :---: |:---:|:---:|
-| ![Pantalla de Bienvenida](00-ImágenesEvidencia/Presentation.jpg) | ![Pantalla de Juego](00-ImágenesEvidencia/HistoryScore.jpg) | ![Pantalla de Resultados](00-ImágenesEvidencia/AlertDialog.jpg) |
+| ![Pantalla de Bienvenida](00-ImágenesEvidencia/Presentation.jpg) | ![Pantalla de Resultados](00-ImágenesEvidencia/HistoryScore.jpg) | ![Pantalla de Reglas del Juepo](00-ImágenesEvidencia/AlertDialog.jpg) |
 
 ## ✨ **Características (Features)**
 
