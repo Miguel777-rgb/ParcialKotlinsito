@@ -3,7 +3,7 @@
  *              Utiliza SoundPool para efectos cortos y MediaPlayer para música.
  * Autor: Miguel Flores
  * Fecha de creación: 18/10/2025
- * Fecha de última modificación: 18/10/2025
+ * Fecha de última modificación: 19/10/2025
  */
 package com.example.colormatchfloo.utils
 

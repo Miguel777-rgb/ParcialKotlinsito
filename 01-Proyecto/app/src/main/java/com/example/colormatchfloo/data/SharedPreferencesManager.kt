@@ -3,7 +3,7 @@
  *              Abstrae la lectura y escritura del puntaje más alto.
  * Autor: Miguel Flores
  * Fecha de creación: 16/10/2025
- * Fecha de última modificación: 16/10/2025
+ * Fecha de última modificación: 19/10/2025
  */
 package com.example.colormatchfloo.data
 

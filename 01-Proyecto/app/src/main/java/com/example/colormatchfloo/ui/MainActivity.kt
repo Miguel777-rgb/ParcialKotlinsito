@@ -2,7 +2,7 @@
  * Descripción: Actividad principal que aloja la navegación de la aplicación.
  * Autor: Miguel Flores
  * Fecha de creación: 16/10/2025
- * Fecha de última modificación: 18/10/2025
+ * Fecha de última modificación: 19/10/2025
  */
 package com.example.colormatchfloo.ui
 

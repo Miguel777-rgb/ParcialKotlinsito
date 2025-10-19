@@ -3,7 +3,7 @@
  *              Actualizado para observar el objeto GameState.
  * Autor: Miguel Flores
  * Fecha de creación: 16/10/2025
- * Fecha de última modificación: 18/10/2025
+ * Fecha de última modificación: 19/10/2025
  */
 package com.example.colormatchfloo.ui.game
 
@@ -93,10 +93,6 @@ class GameFragment : Fragment() {
         }
     }
 
-    /**
-     * AQUÍ ESTÁ EL CAMBIO PRINCIPAL.
-     * Ahora observamos un solo LiveData: gameState.
-     */
     private fun setupObservers() {
         viewModel.gameState.observe(viewLifecycleOwner) { state ->
             // 1. Actualizar Puntaje

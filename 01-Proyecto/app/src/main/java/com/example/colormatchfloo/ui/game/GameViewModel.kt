@@ -18,7 +18,7 @@ import android.util.Log
 
 class GameViewModel : ViewModel() {
 
-    // Ahora solo tenemos un LiveData que contiene todo el estado de la UI.
+    // Tenemos un LiveData que contiene todo el estado de la UI.
     private val _gameState = MutableLiveData<GameState>()
     val gameState: LiveData<GameState> get() = _gameState
 
