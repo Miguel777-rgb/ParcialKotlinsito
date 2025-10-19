@@ -8,7 +8,7 @@
 
 Este proyecto fue desarrollado como una práctica integral para dominar conceptos fundamentales del desarrollo de Android moderno, incluyendo una arquitectura limpia **MVVM**, el componente de navegación de Jetpack, el manejo del ciclo de vida, la persistencia de datos con `SharedPreferences` y el diseño de interfaces de usuario dinámicas y reactivas.
 
-## 🖼️ **Capturas de Pantalla**
+## 🖼️ **Capturas de Pantalla Referenciales**
 
 
 
