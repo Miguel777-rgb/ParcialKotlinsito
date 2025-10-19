@@ -29,4 +29,17 @@
             `backgroundTint` es ideal.
         -->
     </style>
+    <style name="CustomAlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <!-- Fondo personalizado con bordes redondeados -->
+        <item name="android:windowBackground">@drawable/dialog_background</item>
+
+        <!-- Color principal que se usará para el botón de acción ("Entendido") -->
+        <item name="colorPrimary">@color/primary_accent_green</item>
+
+        <!-- Color del texto del título -->
+        <item name="colorOnSurface">@color/text_primary_light</item>
+
+        <!-- Color del texto del mensaje -->
+        <item name="colorOnSurfaceVariant">@color/text_secondary_light</item>
+    </style>
 </resources>

@@ -3,80 +3,111 @@
     Descripción: Layout para mostrar los resultados de la partida.
     Autor: Miguel Flores
     Fecha de creación: 16/10/2025
-    Fecha de última modificación: 16/10/2025
+    Fecha de última modificación: 18/10/2025
 -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp"
+    android:background="@color/background_dark_green"
+    android:padding="32dp"
     tools:context=".ui.result.ResultFragment">
+
+    <ImageButton
+        android:id="@+id/homeButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Volver al inicio"
+        android:src="@drawable/ic_home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/text_secondary_light" />
 
     <TextView
         android:id="@+id/finalScoreLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_regular"
         android:text="@string/final_score_label"
+        android:textColor="@color/text_secondary_light"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/finalScoreTextView" />
+        app:layout_constraintBottom_toTopOf="@id/finalScoreTextView"
+        app:layout_constraintVertical_chainStyle="packed" /> <!-- Inicia la cadena -->
 
     <TextView
         android:id="@+id/finalScoreTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="64sp"
-        android:textStyle="bold"
-        tools:text="25"
-        app:layout_constraintTop_toBottomOf="@id/finalScoreLabel"
-        app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="@font/montserrat_bold"
+        android:textColor="@color/text_primary_light"
+        android:textSize="80sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/highScoreTextView"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/finalScoreLabel"
+        app:layout_constraintBottom_toTopOf="@id/highScoreTextView"
+        tools:text="30" />
 
     <TextView
         android:id="@+id/highScoreTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@id/finalScoreTextView"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/roboto_regular"
+        android:textColor="@color/primary_accent_green"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/sessionHistoryLabel"
-        tools:text="Mejor Puntaje: 30"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/finalScoreTextView"
+        app:layout_constraintBottom_toTopOf="@id/guideline_middle"/> <!-- Termina en la línea guía -->
 
+    <!-- Esta línea nos ayuda a dividir la pantalla para un mejor posicionamiento. -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" /> <!-- La ponemos justo a la mitad (50%) -->
+
+    <!-- ===== GRUPO INFERIOR: Historial y Botón ===== -->
     <TextView
         android:id="@+id/sessionHistoryLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/montserrat_bold"
         android:text="@string/session_history_label"
-        android:textSize="16sp"
-        android:textStyle="bold"
+        android:textColor="@color/text_secondary_light"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/highScoreTextView" />
+        app:layout_constraintBottom_toTopOf="@id/scoresRecyclerView" /> <!-- Se posiciona arriba del RecyclerView -->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/scoresRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@id/sessionHistoryLabel"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toTopOf="@id/playAgainButton"
-        tools:listitem="@layout/item_score_history" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline_middle" /> <!-- Empieza desde la mitad de la pantalla -->
 
     <Button
         android:id="@+id/playAgainButton"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/primary_accent_green"
+        android:fontFamily="@font/montserrat_bold"
+        android:paddingVertical="16dp"
         android:text="@string/play_again"
-        android:padding="16dp"
+        android:textColor="@color/text_on_accent_green"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

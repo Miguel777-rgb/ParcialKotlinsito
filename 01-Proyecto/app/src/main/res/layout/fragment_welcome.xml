@@ -6,19 +6,20 @@
     Fecha de última modificación: 16/10/2025
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="24dp"
+    android:padding="32dp"
+    android:background="@color/background_dark_green"
     tools:context=".ui.welcome.WelcomeFragment">
 
     <!-- El botón de reglas lo movemos a un FrameLayout para posicionarlo arriba a la derecha -->
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="wrap_content">
 
         <ImageButton
             android:id="@+id/rulesButton"
@@ -27,14 +28,15 @@
             android:layout_gravity="top|end"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/game_rules_title"
-            android:src="@android:drawable/ic_menu_info_details" />
-
+            android:src="@android:drawable/ic_menu_info_details"
+            app:tint="@color/text_secondary_light" />
     </FrameLayout>
 
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
         android:text="@string/welcome_title"
         android:textSize="48sp"
         android:textStyle="bold" />
@@ -43,17 +45,34 @@
         android:id="@+id/subtitleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_regular"
         android:layout_marginTop="8dp"
         android:text="@string/welcome_subtitle"
         android:textSize="18sp" />
 
-    <Button
-        android:id="@+id/startGameButton"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:padding="16dp"
-        android:text="@string/start_game" />
+        android:layout_height="0dp"
+        android:layout_weight="1.5">
+
+        <Button
+            android:id="@+id/startGameButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="84dp"
+            android:backgroundTint="@color/primary_accent_green"
+            android:fontFamily="@font/montserrat_bold"
+            android:paddingVertical="16dp"
+            android:text="@string/start_game"
+            android:textColor="@color/text_on_accent_green"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_max="400dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Un espacio vacío para empujar los elementos hacia arriba y que no queden pegados abajo -->
     <View
@@ -61,4 +80,60 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/settings_sound"
+        android:textColor="@color/text_secondary_light" />
+
+    <!-- Slider para la Música -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_music_note"
+            app:tint="@color/text_secondary_light"
+            android:contentDescription="@string/description_music_volume" />
+
+        <SeekBar
+            android:id="@+id/effectsVolumeSlider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="100" />
+    </LinearLayout>
+
+    <!-- Slider para los Efectos -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_volume_up"
+            app:tint="@color/text_secondary_light"
+            android:contentDescription="@string/description_effects_volume" />
+
+        <SeekBar
+            android:id="@+id/musicVolumeSlider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="100" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"/>
 </LinearLayout>

@@ -3,21 +3,27 @@
     Descripción: Paleta de colores centralizada para la aplicación.
     Autor: Miguel Flores
     Fecha de creación: 16/10/2025
-    Fecha de última modificación: 16/10/2025
+    Fecha de última modificación: 19/10/2025
 -->
 <resources>
     <!-- Colores base de la App -->
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="background_light">#F5F5F5</color>
-    <color name="text_primary">#212121</color>
-    <color name="text_secondary">#757575</color>
+    <color name="background_dark_green">#1A2E28</color> <!-- Fondo principal, un verde muy oscuro -->
+    <color name="primary_accent_green">#4CAF50</color> <!-- Verde brillante para botones y acentos -->
+    <color name="primary_accent_hover_green">#66BB6A</color> <!-- Un poco más claro para efectos hover -->
+    <color name="text_primary_light">#E0E0E0</color> <!-- Texto principal, un blanco suave -->
+    <color name="text_secondary_light">#B0B0B0</color> <!-- Texto secundario, un gris claro -->
+    <color name="surface_dialog_dark">#2C3E38</color> <!-- Fondo para superficies como el AlertDialog -->
+    <color name="text_on_accent_green">#103D12</color> <!-- Un verde muy oscuro para texto sobre botones verdes -->
 
-    <!-- Colores del Jueguito -->
+    <!-- Colores del Juego -->
     <color name="game_red">#E53935</color>
     <color name="game_green">#43A047</color>
     <color name="game_blue">#1E88E5</color>
     <color name="game_yellow">#FDD835</color>
     <color name="game_orange">#FB8C00</color>
     <color name="game_purple">#8E24AA</color>
+
+    <!-- Colores base -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
 </resources>

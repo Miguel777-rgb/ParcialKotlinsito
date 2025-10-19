@@ -19,7 +19,7 @@
         Tienes 30 segundos para conseguir el mayor número de aciertos. Are u ready?
     </string>
     <string name="ok_button">Entendido</string>
-
+    <string name="settings_sound">Ajustes de Sonido</string>>
     <!-- GameFragment -->
     <string name="score_label">Puntaje: %d</string>
     <string name="time_label">Tiempo: %d</string>
@@ -29,4 +29,8 @@
     <string name="high_score_label">Mejor Puntaje</string>
     <string name="session_history_label">Historial de la Sesión</string>
     <string name="play_again">Volver a Jugar</string>
+
+    <!-- Textos de Accesibilidad (Content Descriptions) -->
+    <string name="description_music_volume">Icono de volumen de la música</string>
+    <string name="description_effects_volume">Icono de volumen de los efectos de sonido</string>
 </resources>

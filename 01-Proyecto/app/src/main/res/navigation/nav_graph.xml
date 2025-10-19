@@ -49,5 +49,9 @@
             app:destination="@id/gameFragment"
             app:popUpTo="@id/welcomeFragment" /> <!-- Al volver a jugar, también limpiamos la pila -->
     </fragment>
-
+    <action
+        android:id="@+id/action_resultFragment_to_welcomeFragment"
+        app:destination="@id/welcomeFragment"
+        app:popUpTo="@id/welcomeFragment"
+        app:popUpToInclusive="true" />
 </navigation>

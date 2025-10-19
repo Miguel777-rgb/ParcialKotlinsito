@@ -20,6 +20,9 @@ import com.example.colormatchfloo.R
 import com.example.colormatchfloo.adapters.ScoreAdapter
 import com.example.colormatchfloo.databinding.FragmentResultBinding
 import com.example.colormatchfloo.ui.SharedViewModel
+import com.example.colormatchfloo.data.SharedPreferencesManager
+import com.example.colormatchfloo.ui.MainActivity
+import com.example.colormatchfloo.utils.SoundManager
 
 class ResultFragment : Fragment() {
 
@@ -34,6 +37,9 @@ class ResultFragment : Fragment() {
     // Delegado de Safe Args para obtener los argumentos de navegación de forma segura.
     private val args: ResultFragmentArgs by navArgs()
 
+    private lateinit var prefsManager: SharedPreferencesManager
+    private lateinit var soundManager: SoundManager
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -44,6 +50,9 @@ class ResultFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        prefsManager = SharedPreferencesManager(requireContext())
+        soundManager = (activity as MainActivity).soundManager
 
         // 1. Obtenemos el puntaje final que nos llega desde GameFragment.
         val finalScore = args.finalScore
@@ -82,6 +91,23 @@ class ResultFragment : Fragment() {
             // La propiedad popUpTo definida en el XML se encargará de limpiar la pila de navegación.
             findNavController().navigate(R.id.action_resultFragment_to_gameFragment)
         }
+        binding.homeButton.setOnClickListener {
+            // Usamos la nueva acción que definimos en el nav_graph.
+            findNavController().navigate(R.id.action_resultFragment_to_welcomeFragment)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Cuando la pantalla de resultados se muestra, reanuda la música.
+        soundManager.startMusic(prefsManager.getMusicVolume())
+    }
+
+    override fun onPause() {
+        super.onPause()
+        // Cuando sales de la pantalla de resultados (para volver a jugar o ir al inicio),
+        // la música se pausa, lista para que el siguiente fragmento tome el control.
+        soundManager.pauseMusic()
     }
 
     override fun onDestroyView() {

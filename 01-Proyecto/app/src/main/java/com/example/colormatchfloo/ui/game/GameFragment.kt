@@ -20,7 +20,8 @@ import com.example.colormatchfloo.R
 import com.example.colormatchfloo.databinding.FragmentGameBinding
 import com.example.colormatchfloo.utils.Constants
 import com.example.colormatchfloo.utils.SoundManager
-
+import com.example.colormatchfloo.data.SharedPreferencesManager
+import com.example.colormatchfloo.ui.MainActivity
 import android.util.Log
 
 class GameFragment : Fragment() {
@@ -31,7 +32,7 @@ class GameFragment : Fragment() {
     private val viewModel: GameViewModel by viewModels()
 
     private lateinit var soundManager: SoundManager
-
+    private lateinit var prefsManager: SharedPreferencesManager
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,7 +44,8 @@ class GameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d("MiApp_Lifecycle", "GameFragment: onViewCreated - La pantalla de juego se ha creado.")
-        soundManager = SoundManager(requireContext())
+        prefsManager = SharedPreferencesManager(requireContext())
+        soundManager = (activity as MainActivity).soundManager
         setupButtonListeners()
         setupObservers()
     }
@@ -51,14 +53,14 @@ class GameFragment : Fragment() {
     // Gestionamos la música de fondo con el ciclo de vida del fragmento.
     override fun onResume() {
         super.onResume()
-        soundManager.startMusic()
+        // Le pasamos el volumen guardado al iniciar la música.
+        soundManager.startMusic(prefsManager.getMusicVolume())
     }
 
     override fun onPause() {
         super.onPause()
         soundManager.pauseMusic()
     }
-
     private fun setupButtonListeners() {
         val buttonColorMap = mapOf(
             binding.redButton to Constants.GAME_COLORS[0],
@@ -129,8 +131,10 @@ class GameFragment : Fragment() {
         }
         viewModel.soundEvent.observe(viewLifecycleOwner) { sound ->
             sound?.let {
-                soundManager.playSound(it)
-                viewModel.onSoundPlayed() // Notificamos al ViewModel que el evento fue consumido.
+                // Leemos el volumen MÁS RECIENTE de las preferencias.
+                val currentEffectsVolume = prefsManager.getEffectsVolume()
+                soundManager.playSound(it, currentEffectsVolume)
+                viewModel.onSoundPlayed()
             }
         }
     }
@@ -141,9 +145,4 @@ class GameFragment : Fragment() {
         findNavController().navigate(action)
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        soundManager.release()
-        _binding = null
-    }
 }

@@ -13,20 +13,26 @@ import android.media.MediaPlayer
 import android.media.SoundPool
 import com.example.colormatchfloo.R
 
+
+
 // Enum para identificar los sonidos de forma segura y legible.
 enum class GameSound {
     CORRECT,
     ERROR
 }
 
-class SoundManager(private val context: Context) {
+class SoundManager(
+    private val context: Context,
+) {
 
     private val soundPool: SoundPool
     private var correctSoundId: Int = 0
     private var errorSoundId: Int = 0
     private var musicPlayer: MediaPlayer? = null
 
+
     init {
+
         // Configuramos el SoundPool para el audio del juego.
         val audioAttributes = AudioAttributes.Builder()
             .setUsage(AudioAttributes.USAGE_GAME)
@@ -44,22 +50,26 @@ class SoundManager(private val context: Context) {
     }
 
     /** Reproduce un efecto de sonido corto. */
-    fun playSound(sound: GameSound) {
+    fun playSound(sound: GameSound, volume: Float) {
         when (sound) {
-            GameSound.CORRECT -> soundPool.play(correctSoundId, 1.0f, 1.0f, 1, 0, 1.0f)
-            GameSound.ERROR -> soundPool.play(errorSoundId, 1.0f, 1.0f, 1, 0, 1.0f)
+            GameSound.CORRECT -> soundPool.play(correctSoundId, volume, volume, 1, 0, 1.0f)
+            GameSound.ERROR -> soundPool.play(errorSoundId, volume, volume, 1, 0, 1.0f)
         }
     }
 
-    /** Inicia la música de fondo. */
-    fun startMusic() {
+    fun startMusic(volume: Float) {
         if (musicPlayer == null) {
             musicPlayer = MediaPlayer.create(context, R.raw.background_sound).apply {
-                isLooping = true // Para que la música se repita.
-                setVolume(0.3f, 0.3f) // Bajamos el volumen para que no moleste.
+                isLooping = true
             }
         }
+        musicPlayer?.setVolume(volume, volume)
         musicPlayer?.start()
+    }
+
+    // La función para ajustar el volumen en tiempo real ahora es más simple.
+    fun setMusicVolume(volume: Float) {
+        musicPlayer?.setVolume(volume, volume)
     }
 
     /** Pausa la música de fondo. */
@@ -73,4 +83,5 @@ class SoundManager(private val context: Context) {
         musicPlayer?.release()
         musicPlayer = null
     }
+
 }

@@ -9,12 +9,24 @@ package com.example.colormatchfloo.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.colormatchfloo.R
+import com.example.colormatchfloo.utils.SoundManager
 
 class MainActivity : AppCompatActivity() {
+    // Hacemos que sea accesible para los fragments.
+    lateinit var soundManager: SoundManager
+        private set // Los fragments pueden leerla, pero solo la Activity puede cambiarla.
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        // La navegación es manejada por el NavHostFragment definido en el XML.
-        // No se necesita código adicional aquí para una configuración básica.
+
+        // Creamos la única instancia aquí.
+        soundManager = SoundManager(applicationContext)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        // Cuando la app se cierra del todo, liberamos los recursos.
+        soundManager.release()
     }
 }
